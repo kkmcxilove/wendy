@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>手机壳类目竞品分析 · 7 家店铺的定位拆解</title>
+<style>
+  :root{
+    --paper:#FCFBF8;
+    --ink:#1A1815;
+    --ink2:#3D3730;
+    --muted:#7A7066;
+    --faint:#A99E92;
+    --line:#E3DCD2;
+    --rule:#CFC5B7;
+    --accent:#A8451C;
+    --accent-soft:#F3E5DC;
+    --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{width:min(860px,calc(100% - 48px));margin:0 auto;}
+  @media(max-width:640px){.page{width:calc(100% - 32px);}body{font-size:15px;}}
+
+  /* ---------- cover ---------- */
+  .cover{padding:100px 0 64px;border-bottom:1px solid var(--rule);}
+  .cover .cat{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--accent);
+  }
+  h1{
+    margin:26px 0 0;
+    font-family:var(--serif);
+    font-size:clamp(34px,6vw,56px);
+    line-height:1.28;font-weight:600;letter-spacing:.01em;
+  }
+  h1 .light{color:var(--muted);font-weight:400;}
+  .sub{
+    margin:24px 0 0;font-size:clamp(15px,1.9vw,18px);
+    color:var(--ink2);max-width:34em;line-height:1.75;font-weight:400;
+  }
+  .byline{
+    margin-top:52px;padding-top:20px;border-top:1px solid var(--line);
+    display:flex;gap:44px;flex-wrap:wrap;
+    font-size:12.5px;color:var(--muted);
+  }
+  .byline div span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--faint);margin-bottom:4px;text-transform:uppercase;}
+  .byline div b{font-weight:500;color:var(--ink2);font-size:13.5px;}
+  @media(max-width:640px){.cover{padding:64px 0 44px;}.byline{gap:26px;margin-top:36px;}}
+
+  /* ---------- section ---------- */
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .snum{
+    font-family:var(--mono);font-size:11px;letter-spacing:.2em;
+    color:var(--accent);margin-bottom:14px;
+  }
+  h2{
+    margin:0 0 30px;
+    font-family:var(--serif);
+    font-size:clamp(23px,3.4vw,31px);
+    line-height:1.4;font-weight:600;letter-spacing:.01em;
+  }
+  h3{
+    margin:38px 0 12px;
+    font-family:var(--serif);
+    font-size:19px;font-weight:600;line-height:1.5;
+  }
+  h3:first-of-type{margin-top:0;}
+  h3 .mark{
+    font-family:var(--mono);font-size:12px;color:var(--accent);
+    margin-right:9px;letter-spacing:.08em;
+  }
+  p{margin:0 0 20px;color:var(--ink2);}
+  p:last-child{margin-bottom:0;}
+  strong{font-weight:600;color:var(--ink);}
+  em{font-style:normal;border-bottom:1.5px solid var(--accent-soft);padding-bottom:1px;}
+
+  .lede{
+    font-family:var(--serif);font-size:19px;line-height:1.85;
+    color:var(--ink);margin-bottom:26px;
+  }
+  @media(max-width:640px){.lede{font-size:17px;}}
+
+  /* pull quote */
+  .pull{
+    margin:34px 0;padding:2px 0 2px 22px;
+    border-left:2px solid var(--accent);
+    font-family:var(--serif);font-size:18.5px;line-height:1.75;
+    color:var(--ink);
+  }
+  @media(max-width:640px){.pull{font-size:16.5px;padding-left:16px;}}
+
+  /* ---------- table ---------- */
+  .tcap{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--faint);margin:36px 0 10px;
+  }
+  .twrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  table{
+    width:100%;border-collapse:collapse;font-size:13.5px;
+    min-width:600px;font-variant-numeric:tabular-nums;
+  }
+  thead th{
+    text-align:left;font-weight:600;font-size:11.5px;letter-spacing:.04em;
+    color:var(--muted);padding:0 12px 9px 0;
+    border-bottom:1px solid var(--rule);white-space:nowrap;
+  }
+  tbody td{
+    padding:12px 12px 12px 0;border-bottom:1px solid var(--line);
+    vertical-align:top;color:var(--ink2);line-height:1.6;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  td.n{font-weight:600;color:var(--ink);white-space:nowrap;}
+  td.n small{display:block;font-weight:400;font-size:11px;color:var(--faint);letter-spacing:.02em;}
+  td.num{font-family:var(--mono);font-size:12.5px;white-space:nowrap;color:var(--ink);}
+  td.num.miss{color:var(--faint);font-style:italic;font-family:var(--sans);font-size:12px;}
+  td.num.hi{color:var(--accent);font-weight:600;}
+  td.dim{color:var(--muted);font-size:12.5px;}
+  .tnote{margin-top:12px;font-size:12px;color:var(--faint);line-height:1.7;}
+  .tnote b{color:var(--muted);font-weight:600;}
+
+  /* ---------- band chart (价格带轴) ---------- */
+  .bc{margin:30px 0 6px;}
+  .bcplot{position:relative;padding-left:132px;}
+  @media(max-width:640px){.bcplot{padding-left:96px;}}
+  .bcgrid{position:absolute;left:132px;right:0;top:0;bottom:22px;pointer-events:none;}
+  @media(max-width:640px){.bcgrid{left:96px;}}
+  .bcgrid i{position:absolute;top:0;bottom:0;width:1px;background:var(--line);}
+  .bcrow{display:flex;align-items:center;height:26px;position:relative;}
+  .bcname{position:absolute;left:-132px;width:126px;font-size:12px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  @media(max-width:640px){.bcname{left:-96px;width:90px;font-size:10.5px;}}
+  .bctrack{flex:1;height:100%;position:relative;}
+  .bcbar{position:absolute;top:7px;height:11px;background:var(--rule);border-radius:1px;}
+  .bcbar.mine{background:var(--accent);height:15px;top:5px;}
+  .bcbar.tier1{background:#8C7A66;}
+  .bcval{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:10.5px;color:var(--faint);white-space:nowrap;}
+  .bcticks{position:relative;height:22px;margin-top:2px;}
+  .bcticks span{position:absolute;top:6px;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:var(--faint);}
+  .bclead{font-size:11.5px;color:var(--muted);margin-top:14px;line-height:1.7;}
+  .bclead i{display:inline-block;width:14px;height:9px;background:var(--accent);vertical-align:middle;margin-right:5px;}
+  .bclead i.o{background:var(--rule);}
+
+  /* ---------- quadrant chart ---------- */
+  .quad{margin:30px 0 6px;}
+  .quad svg{width:100%;height:auto;display:block;}
+  .quad text{font-family:var(--sans);}
+
+  /* inline stat */
+  .inline-stats{
+    display:flex;gap:38px;flex-wrap:wrap;margin:30px 0;
+    padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .is{min-width:110px;}
+  .is b{display:block;font-family:var(--serif);font-size:27px;font-weight:600;line-height:1.2;color:var(--ink);}
+  .is span{display:block;font-size:11.5px;color:var(--muted);margin-top:4px;letter-spacing:.02em;}
+
+  /* rule box */
+  .rulebox{
+    margin:26px 0;padding:18px 20px;background:var(--accent-soft);
+    border-left:2px solid var(--accent);font-size:14px;color:var(--ink2);line-height:1.8;
+  }
+  .rulebox b{color:var(--ink);font-weight:600;}
+  .rulebox .rl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px;}
+
+  /* limitation list */
+  .limits{margin:0;padding:0;list-style:none;}
+  .limits li{
+    position:relative;padding-left:20px;margin-bottom:14px;
+    font-size:14.5px;color:var(--ink2);line-height:1.75;
+  }
+  .limits li::before{
+    content:"";position:absolute;left:0;top:11px;
+    width:7px;height:1px;background:var(--accent);
+  }
+  .limits b{color:var(--ink);font-weight:600;}
+  .limits li.closed::before{background:var(--faint);}
+  .limits li .tag{
+    font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--faint);
+    border:1px solid var(--rule);padding:1px 5px;margin-left:6px;vertical-align:1px;
+  }
+
+  /* plan */
+  .plan{margin-top:8px;border-top:1px solid var(--line);}
+  .plan-item{
+    display:grid;grid-template-columns:104px 1fr;gap:22px;
+    padding:18px 0;border-bottom:1px solid var(--line);
+  }
+  .plan-item dt{
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    color:var(--accent);padding-top:3px;text-transform:uppercase;
+  }
+  .plan-item dd{margin:0;font-size:14.5px;color:var(--ink2);line-height:1.75;}
+  .plan-item dd b{color:var(--ink);font-weight:600;}
+  .kpi{
+    display:block;margin-top:8px;font-size:12px;color:var(--muted);
+    font-family:var(--mono);letter-spacing:.01em;grid-column:2;
+  }
+  .kpi::before{content:"验收 / ";color:var(--accent);}
+  @media(max-width:600px){
+    .plan-item{grid-template-columns:1fr;gap:4px;padding:14px 0;}
+  }
+
+  footer{padding:44px 0 72px;font-size:12px;color:var(--faint);line-height:1.9;}
+  footer p{margin:0 0 5px;color:var(--faint);}
+
+  @media print{
+    @page{margin:18mm 16mm;}
+    body{background:#fff;font-size:10.5pt;line-height:1.75;}
+    .page{width:100%;}
+    .cover{padding:0 0 34px;break-after:page;}
+    section{padding:26px 0;break-inside:auto;}
+    h2,h3{break-after:avoid;}
+    table{font-size:8.5pt;min-width:0;}
+    .twrap{overflow:visible;}
+    .pull,.inline-stats,.plan-item,.bc,.quad,.rulebox{break-inside:avoid;}
+    tbody tr{break-inside:avoid;}
+    .bcplot{padding-left:120px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="cover">
+    <div class="cat">竞品分析 / Competitive Landscape</div>
+    <h1>手机壳类目<br><span class="light">七家店铺的定位拆解</span></h1>
+    <p class="sub">
+      在 9.9–25.9 元这个价位段，我拆了 7 家店铺的价格、款式和上新节奏。原本想找的是「哪个价位还没人占」，最后发现价格轴上根本没有空位——真正的空位在节奏上。
+    </p>
+    <div class="byline">
+      <div><span>类目</span><b>手机壳</b></div>
+      <div><span>样本</span><b>7 家店铺 · 11 个维度</b></div>
+      <div><span>我的价格带</span><b>9.9–25.9 元</b></div>
+      <div><span>时间</span><b>2026 年 11 月</b></div>
+    </div>
+  </header>
+
+  <!-- 01 -->
+  <section>
+    <div class="snum">01 — 起点</div>
+    <h2>为什么做这次分析</h2>
+
+    <p class="lede">
+      我刚起步做手机壳店铺，定价 9.9 到 25.9 元。这个价位段最难受的地方是：往上够不着品牌，往下拼不过铺货。
+    </p>
+
+    <p>
+      开店前我看了一圈类目，发现手机壳这个品类的信息特别碎。销量榜能看到谁卖得好，但看不到他为什么卖得好；详情页能看到他怎么讲，但看不到他放弃了什么。所以我没有直接照着爆款抄，而是先把竞争对手拉出来，按价格、款式、上新、内容四个维度做了一次拆解。
+    </p>
+
+    <p>
+      这次分析要回答三个问题：<strong>谁在跟我抢同一批人、他们各自的活法是什么、我该站在哪个位置。</strong>
+    </p>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <div class="snum">02 — 方法</div>
+    <h2>我怎么选样本</h2>
+
+    <p>
+      7 家店不是随便找的。我按三个层次选：标杆店看这个类目的上限在哪，直接对手看谁在抢我的流量，新锐店看有没有新的玩法跑出来。每家记录 11 个维度，重点是价格带、款式数量和上新节奏。
+    </p>
+
+    <p>
+      其中「上新强度」是我自己加的一列，算法很简单：<strong>月上新款数 ÷ 在售款式数</strong>。原始数据里只有绝对上新量，但 60 款对一家 850 款的店和一家 25 款的店，完全不是一回事。加了这一列之后，下面第一个结论才浮出来。
+    </p>
+
+    <div class="tcap">表 1 — 样本构成与基础数据</div>
+    <div class="twrap">
+      <table>
+        <thead>
+          <tr>
+            <th>店铺</th><th>分层</th><th>价格带</th><th>在售款式</th><th>月上新</th><th>上新强度</th><th>粉丝</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="n">CASETiFY<small>标杆</small></td>
+            <td class="dim">标杆店</td>
+            <td class="num">289–500</td>
+            <td class="num">850</td>
+            <td class="num">60</td>
+            <td class="num">7.1%</td>
+            <td class="num">33 万</td>
+          </tr>
+          <tr>
+            <td class="n">图拉斯 TORRAS<small>标杆</small></td>
+            <td class="dim">标杆店</td>
+            <td class="num">168–358</td>
+            <td class="num">120</td>
+            <td class="num">12</td>
+            <td class="num">10.0%</td>
+            <td class="num">约 90 万</td>
+          </tr>
+          <tr>
+            <td class="n">闪魔 SmartDevil<small>直接对手</small></td>
+            <td class="dim">直接对手</td>
+            <td class="num">12.9–29.9</td>
+            <td class="num">150</td>
+            <td class="num">25</td>
+            <td class="num">16.7%</td>
+            <td class="num">15 万</td>
+          </tr>
+          <tr>
+            <td class="n">倍思 Baseus<small>直接对手</small></td>
+            <td class="dim">直接对手</td>
+            <td class="num">15.9–39.9</td>
+            <td class="num">90</td>
+            <td class="num">15</td>
+            <td class="num">16.7%</td>
+            <td class="num">1 万 <small style="font-size:10px;color:var(--faint)">※</small></td>
+          </tr>
+          <tr>
+            <td class="n">绿联 UGREEN<small>直接对手</small></td>
+            <td class="dim">直接对手</td>
+            <td class="num">29.9–59.0</td>
+            <td class="num">80</td>
+            <td class="num">8</td>
+            <td class="num">10.0%</td>
+            <td class="num">6 万 <small style="font-size:10px;color:var(--faint)">※</small></td>
+          </tr>
+          <tr>
+            <td class="n">数码专营店<small>直接对手</small></td>
+            <td class="dim">直接对手</td>
+            <td class="num">9.9–19.9</td>
+            <td class="num">400</td>
+            <td class="num">50</td>
+            <td class="num">12.5%</td>
+            <td class="num">0.2 万</td>
+          </tr>
+          <tr>
+            <td class="n">X-bag<small>新锐</small></td>
+            <td class="dim">新锐店</td>
+            <td class="num">15.9–69.9</td>
+            <td class="num">25</td>
+            <td class="num">6</td>
+            <td class="num hi">24.0%</td>
+            <td class="num">3.5 万</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tnote">
+      <b>数据口径。</b>全部取自 2026 年 11 月 4 日手淘前台公开信息，不含任何生意参谋或第三方工具数据。
+      「月上新」为宝贝页按上新排序回溯 30 天的款数；「上新强度」＝月上新 ÷ 在售款式，为我自行计算。
+      数码专营店的月上新为 11 月 4 日补录（首次采集时未取到）。
+      <b>※</b> 倍思、绿联采集到的是淘宝店铺而非天猫品牌旗舰店，粉丝数低于其全网体量，此处仅用于同类目店铺横向比较，不代表品牌规模。
+      访客数、转化率、成交额前台均不公开，本文一律不估算、不引用。
+    </p>
+    <p class="tnote">
+      <b>我删掉的一个字段。</b>原本还记了「是否有直播」，但 7 家里 6 家都有，这个字段没有区分度，我把它换成了上新强度。
+    </p>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <div class="snum">03 — 发现</div>
+    <h2>三个我没预料到的现象</h2>
+
+    <h3><span class="mark">一</span>分层这个类目的不是价格，是上新强度</h3>
+    <p>
+      我原本以为这个类目按价格分层：便宜的是铺货，贵的是品牌。但把款数和上新放在一起之后，我看到的是另一条线。
+    </p>
+    <p>
+      CASETiFY 在售 850 款、月上新 60 款，强度只有 <strong>7.1%</strong>——它店龄长、款池深，上新是在维护一个巨大的长尾货架，不是在追热点。
+      数码专营店 400 款、月上新 50 款，强度 <strong>12.5%</strong>，同样是款海战术，但比 CASETiFY 转得快。
+      而 X-bag 只有 25 款，月上新 6 款，强度 <strong>24.0%</strong>，是全场最高。
+    </p>
+    <p>
+      规律出来了：<strong>在售款越少的店，上新强度越高。</strong>款少意味着每一款都得自己扛流量，只能靠快速试错；款多意味着可以用存量吃搜索，不必急。这不是价格的区别，是<strong>活法的区别</strong>。
+    </p>
+
+    <div class="tcap">图 1 — 款数 × 上新强度（横轴对数刻度）</div>
+    <div class="quad">
+      <svg viewBox="0 0 720 430" role="img" aria-label="散点图：横轴为在售款式数（对数刻度），纵轴为上新强度，七家店加我的目标位">
+        <!-- frame -->
+        <rect x="70" y="26" width="620" height="324" fill="#fff" stroke="#CFC5B7" stroke-width="1"/>
+        <!-- quadrant medians -->
+        <line x1="362" y1="26" x2="362" y2="350" stroke="#E3DCD2" stroke-width="1" stroke-dasharray="4 4"/>
+        <line x1="70" y1="270" x2="690" y2="270" stroke="#E3DCD2" stroke-width="1" stroke-dasharray="4 4"/>
+        <!-- y grid labels -->
+        <g font-size="10" fill="#A99E92" font-family="ui-monospace,Menlo,Consolas,monospace" text-anchor="end">
+          <text x="62" y="353">5%</text>
+          <text x="62" y="300">10%</text>
+          <text x="62" y="246">15%</text>
+          <text x="62" y="193">20%</text>
+          <text x="62" y="140">25%</text>
+          <text x="62" y="86">30%</text>
+          <text x="62" y="33">35%</text>
+        </g>
+        <g stroke="#F0EBE3" stroke-width="1">
+          <line x1="70" y1="297" x2="690" y2="297"/>
+          <line x1="70" y1="243" x2="690" y2="243"/>
+          <line x1="70" y1="190" x2="690" y2="190"/>
+          <line x1="70" y1="137" x2="690" y2="137"/>
+          <line x1="70" y1="83"  x2="690" y2="83"/>
+        </g>
+        <!-- x tick labels -->
+        <g font-size="10" fill="#A99E92" font-family="ui-monospace,Menlo,Consolas,monospace" text-anchor="middle">
+          <text x="106" y="368">25</text>
+          <text x="219" y="368">50</text>
+          <text x="332" y="368">100</text>
+          <text x="445" y="368">200</text>
+          <text x="558" y="368">400</text>
+          <text x="671" y="368">800</text>
+        </g>
+        <g stroke="#F0EBE3" stroke-width="1">
+          <line x1="219" y1="26" x2="219" y2="350"/>
+          <line x1="332" y1="26" x2="332" y2="350"/>
+          <line x1="445" y1="26" x2="445" y2="350"/>
+          <line x1="558" y1="26" x2="558" y2="350"/>
+        </g>
+
+        <!-- points -->
+        <g font-size="11.5" fill="#3D3730">
+          <circle cx="681" cy="328" r="4.5" fill="#8C7A66"/>
+          <text x="676" y="316" text-anchor="end">CASETiFY</text>
+
+          <circle cx="362" cy="297" r="4.5" fill="#8C7A66"/>
+          <text x="362" y="316" text-anchor="middle">图拉斯</text>
+
+          <circle cx="296" cy="297" r="4.5" fill="#CFC5B7"/>
+          <text x="296" y="316" text-anchor="middle">绿联</text>
+
+          <circle cx="558" cy="270" r="4.5" fill="#CFC5B7"/>
+          <text x="558" y="258" text-anchor="middle">数码专营店</text>
+
+          <circle cx="315" cy="226" r="4.5" fill="#CFC5B7"/>
+          <text x="309" y="213" text-anchor="end">倍思</text>
+
+          <circle cx="398" cy="226" r="5.5" fill="#A8451C"/>
+          <text x="408" y="222" fill="#1A1815" font-weight="600">闪魔</text>
+
+          <circle cx="106" cy="147" r="4.5" fill="#CFC5B7"/>
+          <text x="116" y="144">X-bag</text>
+        </g>
+
+        <!-- my target -->
+        <g>
+          <rect x="120" y="67" width="32" height="32" fill="none" stroke="#A8451C" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <circle cx="136" cy="83" r="6" fill="#A8451C"/>
+          <text x="152" y="79" font-size="11.5" fill="#1A1815" font-weight="600">我的目标位</text>
+          <text x="152" y="95" font-size="10.5" fill="#7A7066">≤30 款 · 强度 30%+</text>
+        </g>
+
+        <!-- axis titles -->
+        <text x="380" y="392" font-size="11" fill="#7A7066" text-anchor="middle">在售款式数 →</text>
+        <text x="26" y="188" font-size="11" fill="#7A7066" text-anchor="middle" transform="rotate(-90 26 188)">上新强度 →</text>
+      </svg>
+    </div>
+    <p class="tnote">中位线：在售款 120 款、上新强度 12.5%。左上象限＝少款快迭代，只有 X-bag 一家；右下＝多款慢迭代的存量打法，CASETiFY 和数码专营店在一条线上。</p>
+
+    <div class="pull">
+      款多的店用存量吃搜索，款少的店只能用速度换曝光。我这种 30 款以下的新店，能选的武器只有后者。
+    </div>
+
+    <h3><span class="mark">二</span>价位差 20 倍，三家店在解决同一个问题</h3>
+    <p>
+      这是这次分析里我最在意的一点。我把三家的内容打法并排看：
+    </p>
+
+    <div class="tcap">表 2 — 不同价位的内容打法</div>
+    <div class="twrap">
+      <table>
+        <thead>
+          <tr><th>店铺</th><th>价格带</th><th>怎么让人相信</th><th>本质</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="n">CASETiFY</td>
+            <td class="num">289–500</td>
+            <td>详情页把防摔测试和材质参数全部可视化，用一整套可查证的证据模块支撑溢价</td>
+            <td class="dim">参数背书</td>
+          </tr>
+          <tr>
+            <td class="n">闪魔</td>
+            <td class="num">12.9–29.9</td>
+            <td>详情页放清晰的防摔实测视频，配「发黄包赔」承诺</td>
+            <td class="dim">实证 + 承诺</td>
+          </tr>
+          <tr>
+            <td class="n">绿联</td>
+            <td class="num">29.9–59</td>
+            <td>主图干净，详情页多维度展示「不伤机身」的细节</td>
+            <td class="dim">细节呈现</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tnote">本表只取「如何让买家相信」这一个维度做对比。CASETiFY 的主心智是 IP 联名与自定义，此处仅采其详情页的防摔证据模块作为样本，不代表它的主打卖点。</p>
+
+    <p style="margin-top:24px;">
+      三家在不同价位、用不同手段，做的是同一件事：<strong>让买家相信这个壳子真的抗摔、真的不发黄。</strong>
+    </p>
+
+    <div class="pull">
+      手机壳是看不见摸不着的东西，买家下单前唯一的判断依据就是证据。所以「证明它抗摔」不是营销技巧，是这个类目的信任成本。
+    </div>
+
+    <p>
+      这改变了我原本的优先级。我一开始想的是先把款铺起来，现在看来，<strong>没有一段实拍防摔测试，铺再多款也是在裸奔。</strong>
+    </p>
+
+    <h3><span class="mark">三</span>价格轴上没有空位</h3>
+    <p>
+      把我的价格带和 7 家店放在一条轴上，结论和我最初的假设相反：<strong>我以为能找到一个没人占的价位，实际上根本没有。</strong>
+    </p>
+
+    <div class="tcap">图 2 — 价格带重叠（横轴对数刻度，单位：元）</div>
+    <div class="bc">
+      <div class="bcplot">
+        <div class="bcgrid" aria-hidden="true">
+          <i style="left:2.6%"></i><i style="left:19.7%"></i><i style="left:42.3%"></i><i style="left:59.4%"></i><i style="left:76.4%"></i><i style="left:99%"></i>
+        </div>
+
+        <div class="bcrow"><span class="bcname" style="color:var(--accent);font-weight:600">我</span><span class="bctrack"><span class="bcbar mine" style="left:2.3%;width:23.7%"></span><span class="bcval" style="left:27.1%">9.9–25.9</span></span></div>
+        <div class="bcrow"><span class="bcname">数码专营店</span><span class="bctrack"><span class="bcbar" style="left:2.3%;width:17.2%"></span><span class="bcval" style="left:20.6%">9.9–19.9</span></span></div>
+        <div class="bcrow"><span class="bcname">闪魔</span><span class="bctrack"><span class="bcbar tier1" style="left:8.9%;width:20.7%"></span><span class="bcval" style="left:30.6%">12.9–29.9</span></span></div>
+        <div class="bcrow"><span class="bcname">倍思</span><span class="bctrack"><span class="bcbar" style="left:14.0%;width:22.7%"></span><span class="bcval" style="left:37.7%">15.9–39.9</span></span></div>
+        <div class="bcrow"><span class="bcname">X-bag</span><span class="bctrack"><span class="bcbar" style="left:14.0%;width:36.5%"></span><span class="bcval" style="left:51.5%">15.9–69.9</span></span></div>
+        <div class="bcrow"><span class="bcname">绿联</span><span class="bctrack"><span class="bcbar" style="left:29.6%;width:16.8%"></span><span class="bcval" style="left:47.4%">29.9–59.0</span></span></div>
+        <div class="bcrow"><span class="bcname">图拉斯</span><span class="bctrack"><span class="bcbar tier1" style="left:72.1%;width:18.7%"></span><span class="bcval" style="left:91.8%">168–358</span></span></div>
+        <div class="bcrow"><span class="bcname">CASETiFY</span><span class="bctrack"><span class="bcbar tier1" style="left:85.5%;width:13.5%"></span><span class="bcval" style="left:99.6%">289–500</span></span></div>
+
+        <div class="bcticks">
+          <span style="left:2.6%">10</span><span style="left:19.7%">20</span><span style="left:42.3%">50</span><span style="left:59.4%">100</span><span style="left:76.4%">200</span><span style="left:99%">500</span>
+        </div>
+      </div>
+      <p class="bclead"><i></i>我的价格带　<i class="o"></i>其他店铺　·　条的长度＝价格区间宽度，对数刻度</p>
+    </div>
+
+    <p style="margin-top:26px;">
+      9.9–19.9 是数码专营店的地盘，它用 400 个款吃长尾搜索，我的下沿被它整个压住。12.9 往上，闪魔 12.9–29.9 几乎把我全覆盖。倍思和 X-bag 都从 15.9 起跳，一直拉到 39.9 和 69.9。<strong>我这条带子上，每一段都有人。</strong>
+    </p>
+
+    <div class="tcap">表 3 — 与我的价格带重叠情况</div>
+    <div class="twrap">
+      <table>
+        <thead>
+          <tr><th>店铺</th><th>价格带</th><th>与 9.9–25.9 重叠</th><th>冲突在哪</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="n">数码专营店</td>
+            <td class="num">9.9–19.9</td>
+            <td class="num">62.5%</td>
+            <td>用 400 个款吃长尾搜索，我的下沿被它压住</td>
+          </tr>
+          <tr>
+            <td class="n">闪魔</td>
+            <td class="num">12.9–29.9</td>
+            <td class="num hi">81.3%</td>
+            <td>几乎全覆盖，同风格同价位，品牌更成熟</td>
+          </tr>
+          <tr>
+            <td class="n">倍思</td>
+            <td class="num">15.9–39.9</td>
+            <td class="num">62.5%</td>
+            <td>从我上沿起跳，磁吸卖点重合，但主攻直播</td>
+          </tr>
+          <tr>
+            <td class="n">X-bag</td>
+            <td class="num">15.9–69.9</td>
+            <td class="num">62.5%</td>
+            <td>定位不同，把壳当穿搭配饰卖，短期不正面冲突</td>
+          </tr>
+          <tr>
+            <td class="n">绿联</td>
+            <td class="num">29.9–59.0</td>
+            <td class="num">0%</td>
+            <td>29.9 起步，已越过我的上沿</td>
+          </tr>
+          <tr>
+            <td class="n">图拉斯</td>
+            <td class="num">168–358</td>
+            <td class="num">0%</td>
+            <td>完全不同市场</td>
+          </tr>
+          <tr>
+            <td class="n">CASETiFY</td>
+            <td class="num">289–500</td>
+            <td class="num">0%</td>
+            <td>完全不同市场</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tnote">重叠度＝两家价格带交集宽度 ÷ 我的价格带宽度（16.0 元）。例：闪魔与我的交集为 12.9–25.9＝13.0 元，13.0 ÷ 16.0＝81.3%。</p>
+
+    <p style="margin-top:24px;">
+      那空位在哪？把图 1 和图 2 叠着看就出来了：<strong>少款 + 高强度 + 有防摔证据</strong>，这三件事同时做到的店，一家都没有。
+      闪魔和倍思强度到了 16.7%，但它们是 90–150 款的中型货架；X-bag 是全场唯一的小店节奏（25 款 / 24%），可它的证据是「好看」不是「抗摔」。
+      所以我要抢的不是一个价格位，是一个<strong>还没人用的节奏位</strong>。
+    </p>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <div class="snum">04 — 判断</div>
+    <h2>我得到的三个结论</h2>
+
+    <div class="rulebox">
+      <span class="rl">两个不同的问题</span>
+      我在这一步把两个概念分开了，之前混在一起用。<br>
+      <b>威胁等级</b>回答的是「谁在压我的价格带」＝重叠度 × 体量，数码专营店和闪魔都是高。<br>
+      <b>正面冲突</b>回答的是「谁值得我对标」＝三条同时成立：<b>价格带重叠 ≥ 50%　风格标签同类　主要流量来源相同</b>。
+      三条全中才算抢同一批人。定完标准之后，压着我的有 2 家，能对标只有 1 家。
+    </div>
+
+    <div class="tcap">表 4 — 威胁等级与对标判定</div>
+    <div class="twrap">
+      <table>
+        <thead>
+          <tr><th>店铺</th><th>① 价格重叠</th><th>② 风格同类</th><th>③ 流量同源</th><th>威胁等级</th><th>判定与建议</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="n">闪魔</td><td class="num">81.3%</td><td class="num">是</td><td class="num">是</td><td class="num hi">高</td><td class="dim">正面冲突 3/3 · 唯一重点对标对象</td></tr>
+          <tr><td class="n">数码专营店</td><td class="num">62.5%</td><td class="num">否</td><td class="num">是</td><td class="num hi">高</td><td class="dim">压制但打法不可复制 · 不对标、不跟价格战</td></tr>
+          <tr><td class="n">倍思</td><td class="num">62.5%</td><td class="num">否</td><td class="num">否</td><td class="num">中</td><td class="dim">1/3 · 学它的直播卖点组合（磁吸＋气囊）</td></tr>
+          <tr><td class="n">X-bag</td><td class="num">62.5%</td><td class="num">否</td><td class="num">否</td><td class="num">中</td><td class="dim">1/3 · 场景定位法，作为中期差异化方向</td></tr>
+          <tr><td class="n">绿联</td><td class="num">0%</td><td class="num">否</td><td class="num">否</td><td class="num">低</td><td class="dim">价格错位 · 学主图留白与信息密度</td></tr>
+          <tr><td class="n">图拉斯 / CASETiFY</td><td class="num">0%</td><td class="num">否</td><td class="num">否</td><td class="num">无</td><td class="dim">完全不同市场 · 现阶段不学，只看方向</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tnote">「风格同类」按店铺主营风格标签判断，「流量同源」按其主要曝光方式（搜索 / 直播 / 内容种草）判断，均为前台可观察项，归类为我自己的归纳。本表与《手机壳竞品分析表_成品_v1.xlsx》第 3 张表的威胁评级口径一致。</p>
+
+    <div class="inline-stats">
+      <div class="is"><b>2 家</b><span>价格带上的实际压力</span></div>
+      <div class="is"><b>1 家</b><span>值得对标的正面对手</span></div>
+      <div class="is"><b>30%+</b><span>我要占的上新强度</span></div>
+    </div>
+
+    <h3><span class="mark">一</span>我的主要对手只有一个，是闪魔</h3>
+    <p>
+      按上面的标准，只有它三条全中：同价位、同风格、同样靠搜索。而且它的内容证据链是完整的。
+      数码专营店虽然价格重叠 62.5%，但它是 400 款铺货吃长尾流量，<strong>这个打法我复制不了，也不该去复制</strong>——新店没有那个款式储备和供应链。
+    </p>
+    <p>
+      主要对手只有一个，对我来说是好消息。这意味着我不用同时应付多个方向，把它的详情页拆透就够了。
+    </p>
+
+    <h3><span class="mark">二</span>9.9 只做引流位，主销压在 12.9–19.9</h3>
+    <p>
+      9.9 扣掉运费包材基本没有利润，作用是拉店铺权重，不该当主销。12.9–19.9 这一段虽然被闪魔覆盖，但它的款数摊在 150 个 SKU 上，单款投入有限；<strong>我不需要赢整个价位，只需要在这段的少数几个款上比它证据更硬。</strong>
+    </p>
+    <p>
+      19.9–25.9 放磁吸和防摔功能款，这一段倍思和 X-bag 都从 15.9 起跳但都不以我为目标人群，是我最容易做出毛利的上探空间。
+    </p>
+
+    <h3><span class="mark">三</span>入场门槛是防摔实测内容，不是款的数量</h3>
+    <p>
+      我把三家的做法放在一起之后，判断变了。原本我以为新店要先解决「款够不够多」，现在我认为要先解决「证据够不够硬」。这个判断如果错了，代价是我在一个没有信任基础的店铺上铺了一堆款。
+    </p>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <div class="snum">05 — 下一步</div>
+    <h2>我准备怎么做</h2>
+
+    <dl class="plan">
+      <div class="plan-item">
+        <dt>内容</dt>
+        <dd>第一件要做的事不是选款，是<b>拍一条防摔实测</b>。手机装壳从 1.5 米跌落，多角度实拍，剪 30 秒，放进详情页第二屏和主图视频位。成本很低，但这是门槛。</dd>
+        <span class="kpi">详情页停留时长、跳失率，改前改后各记一次</span>
+      </div>
+      <div class="plan-item">
+        <dt>节奏</dt>
+        <dd>这个类目中间态活不了，慢就是死。但我不照抄闪魔的绝对数——它是 150 款的店。我的目标是<b>在售款控制在 30 款以内，每月迭代 8–10 款</b>，把上新强度做到 30% 以上，用款少换迭代快。</dd>
+        <span class="kpi">每月核对：在售款数 ≤30、上新强度 ≥30%、连续 3 个月</span>
+      </div>
+      <div class="plan-item">
+        <dt>定价</dt>
+        <dd>三层结构：9.9–12.9 少量引流款拉权重，<b>12.9–19.9 主销</b>，19.9–25.9 放磁吸和防摔功能款。全部压在 9.9 没有意义。</dd>
+        <span class="kpi">主销层贡献的款数占比 ≥50%</span>
+      </div>
+      <div class="plan-item">
+        <dt>对标</dt>
+        <dd>重点拆闪魔的详情页结构：主图前 3 张讲什么、防摔证据放在第几屏、「发黄包赔」怎么写。<b>照结构做，但换掉视觉和文案</b>，不照搬图片。</dd>
+        <span class="kpi">输出一页结构对照表，逐屏标注它讲什么、我讲什么</span>
+      </div>
+      <div class="plan-item">
+        <dt>淘汰</dt>
+        <dd>款少不等于不筛。上新满 14 天的款，用点击率和收藏加购淘汰掉打不动的，把位置让给下一批。<b>强度是靠淘汰换来的，不是靠硬堆上新。</b></dd>
+        <span class="kpi">每月至少下架/替换 2 款，并记录淘汰依据</span>
+      </div>
+      <div class="plan-item">
+        <dt>差异</dt>
+        <dd>X-bag 的路子我记下了：把手机壳当「穿搭配饰」卖，25 个款做到 15.9–69.9。这条路对款数要求低、对定位要求高，适合我现在的资源。但它需要持续的内容能力，我暂时不具备，先作为中期方向。</dd>
+        <span class="kpi">暂不投入，每季度回看一次内容能力是否具备</span>
+      </div>
+    </dl>
+  </section>
+
+  <!-- 06 -->
+  <section>
+    <div class="snum">06 — 局限</div>
+    <h2>这次分析没做到的地方</h2>
+
+    <ul class="limits">
+      <li><b>没有销量数据。</b>前台不公开访客数、转化率、成交额，我只能靠款式数、粉丝量、上新节奏间接判断体量，判断可能有偏差。补上销量数据后，威胁评级需要重新校准。</li>
+      <li><b>样本只有 7 家。</b>覆盖了标杆和主要对手，但长尾和中腰部店铺没纳入，可能漏掉了某个正在起量的新玩家。</li>
+      <li><b>只做到店铺层，没落到款式层。</b>哪几个具体款卖得好、主图怎么拍、差评集中在哪，这些还没拆。而这恰恰是决定我上什么款的直接依据。</li>
+      <li class="closed"><b>粉丝量口径不统一。</b>倍思、绿联采到的是淘宝店铺而非品牌旗舰店，横向比较时只能看量级不能看绝对值。<span class="tag">已在表 1 标注</span></li>
+      <li class="closed"><b>数码专营店上新缺失。</b>原本担心「如果它上新也很猛，威胁等级要往上调一档」。补录后是 400 款 / 月上新 50，强度 12.5%，低于闪魔和倍思，<b>威胁等级不上调</b>——它靠的是款海存量，不是迭代速度。<span class="tag">已闭合</span></li>
+    </ul>
+
+    <p style="margin-top:30px;">
+      下一步我打算把闪魔和 X-bag 的爆款拉出来，做一次款式级拆解——图案类型、材质、主图结构、差评关键词，把这次停在店铺层的判断落到具体款式上。
+    </p>
+    <p>
+      另外，<strong>本文只到判断和计划，执行结果还没回收。</strong>三个月后应该补一节「计划 vs 实际」：防摔实测有没有做出来、上新强度有没有真的跑到 30%、12.9–19.9 主销层有没有立住。没有这一节，它只是一份分析，不是一个闭环。
+    </p>
+  </section>
+
+  <footer>
+    <p>数据来源：7 家店铺手淘前台公开信息，采集于 2026 年 11 月 4 日；上新强度、重叠度、判定结果为本人计算与归纳。</p>
+    <p>分析框架与结论为本人独立完成。文中未标注的数据为未获取项，未做推测填充。</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

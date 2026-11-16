@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
+  <title>商品图文生成器 · 演示 | 陈婉丽</title>
+  <meta name="description" content="Workflow 搭建作品演示：AI 大模型驱动的商品图文生成器，输入商品信息一键生成营销图文。">
+  <meta property="og:title" content="商品图文生成器 · 演示 | 陈婉丽">
+  <meta property="og:description" content="Workflow 搭建作品演示：AI 大模型驱动的商品图文生成器。">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f6f61'/%3E%3Ctext x='16' y='21' font-family='sans-serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23fff'%3E婉%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css?v=20261112d">
+  <style>
+    /* ==============================================================
+       Generator Demo Page — 极简深色布局
+       ============================================================== */
+    body.demo-page {
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 0%, rgba(31, 111, 97, 0.12), transparent 70%),
+        radial-gradient(ellipse 50% 35% at 85% 10%, rgba(138, 109, 31, 0.08), transparent 70%),
+        var(--bg);
+    }
+    html[data-theme="light"] body.demo-page {
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 0%, rgba(31, 111, 97, 0.06), transparent 70%),
+        radial-gradient(ellipse 50% 35% at 85% 10%, rgba(138, 109, 31, 0.04), transparent 70%),
+        var(--bg);
+    }
+
+    .demo-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    .demo-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px 9px 14px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      transition: color 0.25s var(--ease), border-color 0.25s var(--ease), background 0.25s var(--ease);
+    }
+    .demo-back svg { width: 16px; height: 16px; }
+    .demo-back:hover {
+      color: var(--text);
+      border-color: rgba(var(--accent-primary-rgb), 0.4);
+      background: rgba(var(--accent-primary-rgb), 0.08);
+    }
+    html[data-theme="light"] .demo-back {
+      border-color: rgba(0, 0, 0, 0.12);
+      background: rgba(0, 0, 0, 0.03);
+    }
+    html[data-theme="light"] .demo-back:hover {
+      border-color: rgba(var(--accent-primary-rgb), 0.4);
+      background: rgba(var(--accent-primary-rgb), 0.08);
+    }
+
+    .demo-head { text-align: center; margin-bottom: 40px; }
+    .demo-kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 5px 14px;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--accent-secondary);
+      border: 1px solid rgba(var(--accent-secondary-rgb), 0.32);
+      border-radius: 100px;
+      background: rgba(var(--accent-secondary-rgb), 0.08);
+    }
+    .demo-title {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4.2vw, 44px);
+      font-weight: 700;
+      line-height: 1.25;
+      background: var(--title-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: var(--text);
+    }
+    .demo-desc {
+      margin: 0 auto;
+      max-width: 640px;
+      font-size: 15px;
+      line-height: 1.95;
+      color: var(--text-secondary);
+    }
+
+    .demo-video-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #000;
+      box-shadow: 0 20px 56px rgba(0, 0, 0, 0.45);
+    }
+    html[data-theme="light"] .demo-video-wrap {
+      border-color: rgba(0, 0, 0, 0.09);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.14);
+    }
+    .demo-video-wrap video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    .demo-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .demo-meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+    .demo-cta {
+      margin-top: 48px;
+      text-align: center;
+    }
+    .demo-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #0b0d12;
+      border-radius: 10px;
+      background: linear-gradient(110deg, #1f6f61 0%, #2e8c7a 55%, #8a6d1f 100%);
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+    }
+    .demo-cta a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(31, 111, 97, 0.35);
+    }
+    .demo-cta a svg { width: 15px; height: 15px; }
+
+    /* 主题切换按钮（沿用主页样式） */
+    .demo-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 50;
+    }
+    @media (max-width: 520px) {
+      .demo-wrap { padding: 56px 16px 64px; }
+      .demo-video-wrap { border-radius: 14px; }
+    }
+  </style>
+</head>
+<body class="demo-page">
+
+  <!-- 主题切换按钮（和主页一致） -->
+  <button class="theme-toggle demo-theme" type="button" aria-label="切换深色/亮色主题" title="切换主题">
+    <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+    </svg>
+    <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+
+  <main class="demo-wrap">
+
+    <!-- 返回按钮 -->
+    <a class="demo-back" href="./index.html#ai-works" aria-label="返回作品集">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      返回作品集
+    </a>
+
+    <!-- 标题区 -->
+    <header class="demo-head">
+      <span class="demo-kicker">Workflow · Coze</span>
+      <h1 class="demo-title">商品图文生成器演示</h1>
+      <p class="demo-desc">
+        结合 AI 大模型与自动化工作流，输入商品信息即可一键生成营销图文。
+        演示视频展示了从商品输入到图文产出的完整过程。
+      </p>
+    </header>
+
+    <!-- 视频播放器 -->
+    <div class="demo-video-wrap">
+      <video controls playsinline webkit-playsinline preload="metadata"
+             poster="./assets/images/workflow-cover.jpg"
+             aria-label="商品图文生成器演示视频">
+        <source src="./assets/videos/generator-demo.mp4" type="video/mp4">
+        您的浏览器不支持 HTML5 视频播放，请更换浏览器观看。
+      </video>
+    </div>
+
+    <!-- 元信息 -->
+    <div class="demo-meta">
+      <span><strong>时长</strong>约 32 秒</span>
+      <span><strong>平台</strong>Coze / 扣子</span>
+      <span><strong>类型</strong>Workflow 搭建</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="demo-cta">
+      <a href="https://x79xsq4ff9.coze.site" target="_blank" rel="noopener noreferrer">
+        在线体验完整版
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    /* 主题切换（沿用主页逻辑） */
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved) document.documentElement.setAttribute('data-theme', saved);
+        else if (window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+          var next = cur === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
